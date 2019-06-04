@@ -4,6 +4,9 @@ services:
     container_name: docker-node-mongo
     restart: always
     build: .
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - '80:8080'
     depends_on:
