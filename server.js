@@ -1,11 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8000;
 
-app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => res.send('Hello man!'))
+app.get('/', (req, res) => res.send('Hello world!'))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

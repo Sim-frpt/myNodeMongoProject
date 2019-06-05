@@ -1,19 +1,19 @@
 version: '3'
 services:
   app:
-    container_name: docker-node-mongo
+    container_name: nodeEnvironment
     restart: always
-    build: .
+    image: node:latest
+    working_dir: /home/node/app
     volumes:
-      - ./:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/home/node/app
     ports:
-      - '80:8080'
+      - '80:8000'
     depends_on:
       - mongo
-
+    command: "npm run dev"
   mongo:
-    container_name: mongo
+    container_name: mongodb
     image: mongo
     ports:
       - '27017:27017'
